@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCartShopping } from 'react-icons/fa6'
+import {  FaCaretDown, FaCartShopping } from 'react-icons/fa6'
 import { IoMdSearch } from 'react-icons/io'
 import DarkMode from './Dark'
 
@@ -28,13 +28,33 @@ const Navbar = () => {
         },
     ]
 
+    const DropdownLinks = [
+        {
+            id: 1,
+            name: "Tending Products",
+            link: "/#",
 
+        },
+        {
+            id: 2,
+            name: "Best Selling",
+            link: "/#",
+
+        },
+        {
+            id: 3,
+            name: "Top RatedS",
+            link: "/#",
+
+        }
+
+    ]
 
 
     return (
         <div className='bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40'>
             <div className='py-4'>
-                <div className="container flex justify-between items-center ">
+                <div className=" container mx-auto  flex justify-between items-center ">
                     <div className='flex items-center gap-4'>
                         <a href="#" className='text-primary font-semibold  tracking-widest text-2xl uppercase sm:text-3xl'>
                             Eshop
@@ -51,6 +71,37 @@ const Navbar = () => {
                                         </li>
                                     ))
                                 }
+                                {/* //Dropdown Menu */}
+                                <li className='relative cursor-pointer group'>
+                                    <a href="#" className='flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2'>
+                                        Quick Links
+                                        <span>
+                                            <FaCaretDown className='group-hover:rotate-180 duration-300' />
+                                        </span>
+                                    </a>
+                                    {/* DropLinks */}
+                                    <div className='absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-dark-900 p-2 dark:text-white' >
+                                        <ul className='space-y-2'>
+                                            {
+                                                DropdownLinks.map((data, index) => (
+                                                    <li key={data.id}>
+                                                        <a
+                                                            className='text-gray-500
+                                                         dark:hover:text-whiet duration-200
+                                                        p-2 inline-block w-full hover:bg-primary/20
+                                                        rounded-md font-semibold    
+                                                        '
+                                                        href={data.link} 
+                                                        >
+                                                              {data.name}
+                                                                 </a>
+                                                    </li>
+                                                ))
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -64,7 +115,7 @@ const Navbar = () => {
                         <button className='relative p-3'>
                             <FaCartShopping className='text-xl text-gray-600 dark:text-gray-400' />
                             <div
-                            className='w-4 h-4 bg-red-500 text-white rounded-full absolute top-0  right-0 flex items-center justify-center text-xs'
+                                className='w-4 h-4 bg-red-500 text-white rounded-full absolute top-0  right-0 flex items-center justify-center text-xs'
                             >4</div>
                         </button>
 
