@@ -7,22 +7,22 @@ const Navbar = () => {
 
     const MenuLinks = [
         {
-            key: 1,
+            id: 1,
             name: "Home",
             link: "/#"
         },
         {
-            key: 2,
+            id: 2,
             name: "Shop",
             link: "/#shop"
         },
         {
-            key: 3,
+            id: 3,
             name: "About Us",
             link: "/#about"
         },
         {
-            key: 4,
+            id: 4,
             name: "Blog",
             link: "/#blog"
         },
@@ -49,23 +49,22 @@ const Navbar = () => {
         }
 
     ]
-
-
     return (
         <div className='bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40'>
             <div className='py-4'>
-                <div className=" container mx-auto  flex justify-between items-center ">
+                <div className="container mx-auto px-4 sm:px-3 flex justify-between items-center ">
                     <div className='flex items-center gap-4'>
                         <a href="#" className='text-primary font-semibold  tracking-widest text-2xl uppercase sm:text-3xl'>
                             Eshop
                         </a>
+                        {/* Menu Links */}
                         <div className='hidden lg:block'>
                             <ul className='flex items-center gap-4' >
                                 {
                                     MenuLinks.map((data, index) => (
                                         <li key={index}>
                                             <a href={data.link}
-                                                className='inline-block px-4 font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-'>
+                                                className='inline-block px-4 font-semibold text-gray-500 hover:text-black dark:hover:text-white duration-200'>
                                                 {data.name}
                                             </a>
                                         </li>
@@ -73,21 +72,21 @@ const Navbar = () => {
                                 }
                                 {/* //Dropdown Menu */}
                                 <li className='relative cursor-pointer group'>
-                                    <a href="#" className='flex items-center gap-[2px] font-semibold text-gray-500 dark:hover:text-white py-2'>
+                                    <a href="#" className='flex items-center gap-[2px] font-semibold text-gray-500  dark:hover:text-white py-2'>
                                         Quick Links
                                         <span>
                                             <FaCaretDown className='group-hover:rotate-180 duration-300' />
                                         </span>
                                     </a>
                                     {/* DropLinks */}
-                                    <div className='absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-dark-900 p-2 dark:text-white' >
+                                    <div className='absolute z-[9999] hidden group-hover:block w-[200px] rounded-md bg-white shadow-md dark:bg-gray-900 p-2 dark:text-white' >
                                         <ul className='space-y-2'>
                                             {
                                                 DropdownLinks.map((data, index) => (
                                                     <li key={data.id}>
                                                         <a
                                                             className='text-gray-500
-                                                         dark:hover:text-whiet duration-200
+                                                         dark:hover:text-white duration-200
                                                         p-2 inline-block w-full hover:bg-primary/20
                                                         rounded-md font-semibold    
                                                         '
